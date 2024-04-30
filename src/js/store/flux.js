@@ -1,75 +1,30 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			selectedCharacter: {
-				uid: "",
-				name: "",
-				url: ""
-			},
-
-			infoSelectedCharacter: {
-				height: "",
-				mass: "",
-				hair_color: "",
-				skin_color: "",
-				eye_color: "",
-				birth_year: "",
-				gender: "",
-				created: "",
-				edited: "",
-				name: "",
-				homeworld: "",
-				url: ""
-			},
-
-			selectedPlanet: {
-				uid: "",
-				name: "",
-				url: ""
-			},
-
-			infoSelectedPlanet: {
-				diameter: "",
-				rotation_period: "",
-				orbital_period: "",
-				gravity: "",
-				population: "",
-				climate: "",
-				terrain: "",
-				surface_water: "",
-				created: "",
-				edited: "",
-				name: "",
-				url: ""
-			},
-
-			selectedVehicle: {
-				uid: "",
-				name: "",
-				url: ""
-			},
-
-			infoSelectedVehicle: {
-				model: "",
-				vehicle_class: "",
-				manufacturer: "",
-				cost_in_credits: "",
-				length: "",
-				crew: "",
-				passengers: "",
-				max_atmosphering_speed: "",
-				cargo_capacity: "",
-				consumables: "",
-				films: [],
-				pilots: [],
-				created: "",
-				edited: "",
-				name: "",
-				url: ""
-			}
+			characters: [],
 		},
 		actions: {
-
+			getCharacters: async () => {
+				fetch("https://www.swapi.tech/api/people/")
+					.then(res => res.json())
+					.then(data => {
+						const { results } = data;
+						setStore({ characters: results });
+						console.log(results);
+					})
+					.catch(err => console.error(err))
+			},
+			getCharactersInfo: async (id) => {
+				fetch(`https://www.swapi.tech/api/people/1`)
+					.then(res => res.json())
+					.then(data => {
+						const { result } = data;
+						const prevCharacterStore = getStore().characters || [];
+						setStore({ characters: [...prevCharacterStore, { properties: result.properties, description: result.description, uid: result.uid }] })
+						console.log(result);
+					})
+					.catch(err => console.error(err))
+			}
 		}
 	};
 };
