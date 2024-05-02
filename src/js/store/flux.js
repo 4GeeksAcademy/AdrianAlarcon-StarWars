@@ -14,6 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(err => console.error(err))
 			},
+			
 			getCharactersInfo: async (id) => {
 				fetch(`https://www.swapi.tech/api/people/1`)
 					.then(res => res.json())
