@@ -1,5 +1,6 @@
 /* index.css */
 body {
-    background-color: black;
-  }
-  
+  /*background-color: black;*/
+  background-image: url("https://www.xtrafondos.com/descargar.php?id=3654&resolucion=2560x1440");
+  background-size:cover;
+}
