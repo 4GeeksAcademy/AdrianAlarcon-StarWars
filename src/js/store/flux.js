@@ -16,7 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			
 			getCharactersInfo: async (id) => {
-				fetch(`https://www.swapi.tech/api/people/1`)
+				fetch(`https://www.swapi.tech/api/people/${id}`)
 					.then(res => res.json())
 					.then(data => {
 						const { result } = data;
