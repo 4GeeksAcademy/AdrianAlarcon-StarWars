@@ -12,7 +12,7 @@ export const Home = () => {
 			<div className="row text-white mt-3">
 				<h2>Characters</h2>
 			</div>
-			<div className="text-white mt-3 d-flex overflow-x-scroll">
+			<div className="text-white mt-3 d-flex horizontal-scroll"/*overflow-auto para hacerloc on bootstrap 4.6*/>
 				{store.characters.map((character, index) => (
 					<GenericCard key={index} body={character}></GenericCard>
 				))}
