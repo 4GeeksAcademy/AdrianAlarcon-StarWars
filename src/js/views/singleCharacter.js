@@ -9,25 +9,36 @@ export const SingleCharacter = () => {
 	const info = store.infoCharacter;
 	console.log(store.characterImg);
 	return (
-		<div className="container">
-			<div className="row bg-warning">
-				<div className="card mb-3" >
-					<div className="row no-gutters">
-						<div className="col-md-4">
-							<img src={store.characterImg}/> 
-						</div>
-						<div className="col-md-8">
-							<div className="card-body">
-								<h5 className="card-title">Card title</h5>
-								<p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-							</div>
-						</div>
-					</div>
+		<div className="container mt-4 ">
+			<div className="row altura bg-white"> {/* Fila principal */}
+                <div className="col-md-7 p-0"> {/* Eliminar padding */}
+                    <img
+                        src={store.characterImg}
+                        alt="Character"
+                        className="limited-image" // Imagen con ancho completo
+                    />
+                </div>
+                <div className="col-md-5 d-flex align-items-center justify-content-center"> {/* Centrar el contenido */}
+                    <div className="text-center">
+                        <h5>Character Information</h5>
+                        <p>Descripción o detalles del personaje.</p>
+                        <p>
+                            <small className="text-muted">Última actualización hace 3 minutos</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+			{/* Sección adicional para más información */}
+			<div className="row bg-success mt-3"> {/* Nueva fila para secciones adicionales */}
+				<div className="col-md-6"> {/* Primer segmento para información adicional */}
+					<h2>Información adicional</h2>
+					<p>Detalles extra sobre el personaje.</p>
 				</div>
-			</div>
-			<div className="row bg-success">
-				<h1>Adios</h1>
+				<div className="col-md-6"> {/* Segundo segmento */}
+					<h2>Más contenido</h2>
+					<p>Contenido relacionado o secciones adicionales.</p>
+				</div>
 			</div>
 		</div>
 	);
