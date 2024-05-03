@@ -1,19 +1,28 @@
-/* home.css */
 .horizontal-scroll {
-    display: flex; /* Habilita el diseño flexible */
-    flex-wrap: nowrap; /* Evita que los elementos se envuelvan a la siguiente línea */
-    overflow-x: auto; /* Habilita el desplazamiento horizontal */
-    gap: 10px; /* Espacio entre tarjetas */
-    padding-bottom: 10px; /* Espacio para evitar que el scroll tape parte del contenido */
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 10px;
 }
 
 .card {
-    min-width: 250px; /* Ancho mínimo para cada tarjeta */
-    flex: 0 0 auto; /* Impide que las tarjetas se estiren o encojan */
+    min-width: 280px;
+    max-width: 280px;
+    flex: 0 0 auto;
+    text-align: center;
 }
 
 .card-img-top {
-    height: 300px; /* Altura fija para las imágenes */
-    object-fit: cover; /* Ajusta la imagen al espacio, manteniendo proporción */
+    height: 280px;
+    width: 100%;
+    object-fit: cover;
 }
 
+.card-body {
+    padding: 10px;
+}
+
+.page-content {
+    padding-bottom: 90px;
+}
