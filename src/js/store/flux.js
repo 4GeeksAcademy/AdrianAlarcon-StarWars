@@ -5,6 +5,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planets: [],
 			vehicles: [],
 			selectedCharacter: "",
+			characterImg:"",
+			planetImg:"",
+			vehicleImg:"",
 			selectedPlanet: "",
 			selectedVehicle: "",
 			infoCharacter: {},
@@ -13,13 +16,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 
-			setSelectedCharacter: (id) => {
+			setSelectedCharacter: (id,img) => {
 				setStore({ selectedCharacter: id });
+				setStore({characterImg:img})
 			},
-			setSelectedPlanet: (id) => {
+			setSelectedPlanet: (id,img) => {
 				setStore({ selectedPlanet: id });
 			},
-			setSelectedVehicle: (id) => {
+			setSelectedVehicle: (id,img) => {
 				setStore({ selectedVehicle: id });
 			},
 
