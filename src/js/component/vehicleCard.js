@@ -13,8 +13,8 @@ export const VehicleCard = ({ body }) => {
 
     const handleClick = (id) => {
         console.log(id);
-        store.
-        navigate("/single");
+        actions.setSelectedVehicle(id);
+        navigate("/singleVehicle");
     }
 
     return (

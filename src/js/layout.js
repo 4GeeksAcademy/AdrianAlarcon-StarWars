@@ -2,7 +2,9 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { Home } from "./views/home";
-import { Single } from "./views/single";
+import { SingleCharacter } from "./views/singleCharacter";
+import { SinglePlanet } from "./views/singlePlanet";
+import { SingleVehicle } from "./views/singleVehicle";
 
 import injectContext from "./store/appContext";
 
@@ -21,7 +23,9 @@ const Layout = () => {
 				<Navbar />
 				<Routes>
 					<Route path="/" element={<Home />} />
-					<Route path="/single" element={<Single />} />
+					<Route path="/singleCharacter" element={<SingleCharacter />} />
+					<Route path="/singleVehicle" element={<SingleVehicle />} />
+					<Route path="/singlePlanet" element={<SinglePlanet />} />
 					<Route path="*" element={<h1>Not found!</h1>} />
 				</Routes>
 				<Footer />

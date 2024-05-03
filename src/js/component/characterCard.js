@@ -14,7 +14,7 @@ export const CharacterCard = ({ body }) => {
     const handleClick = (id) => {
         console.log(id);
         actions.setSelectedCharacter(id);
-        navigate("/single");
+        navigate("/singleCharacter");
     }
 
     return (

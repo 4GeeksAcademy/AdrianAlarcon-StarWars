@@ -13,8 +13,8 @@ export const PlanetCard = ({ body }) => {
 
     const handleClick = (id) => {
         console.log(id);
-        store.
-        navigate("/single");
+        actions.setSelectedPlanet(id);
+        navigate("/singlePlanet");
     }
 
     return (

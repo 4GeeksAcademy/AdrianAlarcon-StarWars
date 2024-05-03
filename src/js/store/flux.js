@@ -5,18 +5,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planets: [],
 			vehicles: [],
 			selectedCharacter: "",
-			selectedPlanets: "",
-			selectedVehicles: "",
+			selectedPlanet: "",
+			selectedVehicle: "",
 		},
 		actions: {
 			setSelectedCharacter: (id) => {
 				setStore({ selectedCharacter: id });
 			},
-			setSelectedPlanets: (id) => {
-				setStore({ selectedPlanets: id }); 
+			setSelectedPlanet: (id) => {
+				setStore({ selectedPlanet: id });
 			},
-			setSelectedVehicles: (id) => {
-				setStore({ selectedVehicles: id }); 
+			setSelectedVehicle: (id) => {
+				setStore({ selectedVehicle: id });
 			},
 			getCharacters: async () => {
 				fetch("https://www.swapi.tech/api/people/")
