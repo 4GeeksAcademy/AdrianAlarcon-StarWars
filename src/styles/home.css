@@ -11,6 +11,7 @@
     max-width: 280px;
     flex: 0 0 auto;
     text-align: center;
+    cursor: pointer;
 }
 
 .card-img-top {
@@ -26,3 +27,4 @@
 .page-content {
     padding-bottom: 90px;
 }
+

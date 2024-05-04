@@ -15,8 +15,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			infoCharacter: {},
 			infoPlanet: {},
-			infoVehicle: {}
+			infoVehicle: {},
+
+			fav: [
+				{ id: 1, type: "character" },
+				{ id: 4, type: "planet" }
+			]
 		},
+
 		actions: {
 
 			setSelectedCharacter: (id, img) => {
@@ -93,8 +99,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ infoVehicle: info })
 					})
 					.catch(err => console.error(err))
-			}
+			},
 
+			addtoFav: (id, type) => {
+				
+			},
+
+			deleteFromFav: () => {
+
+			}
 		}
 	};
 };
