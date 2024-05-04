@@ -3,7 +3,7 @@ import { images } from "../utils";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const VehicleCard = ({ body }) => {
+export const VehicleCardFav = ({ body }) => {
     const { actions } = useContext(Context);
     const navigate = useNavigate();
 
@@ -18,10 +18,10 @@ export const VehicleCard = ({ body }) => {
     }
 
     return (
-        <div className="custom-box" onClick={() => handleClick(body.uid, imagePath)}>
-            <img src={imagePath} className="custom-image" alt={body.name} />
-            <div className="custom-content">
-                <h5 className="custom-title text-black">{body.name}</h5>
+        <div className="card" onClick={() => handleClick(body.uid, imagePath)}>
+            <img src={imagePath} className="card-img-top" alt={body.name} />
+            <div className="card-body">
+                <h5 className="card-title text-black">{body.name}</h5>
             </div>
         </div>
     );

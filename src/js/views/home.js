@@ -1,9 +1,9 @@
 import React, { useEffect, useContext } from "react";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
-import { CharacterCard } from "../component/characterCard";
-import { PlanetCard } from "../component/planetCard";
-import { VehicleCard } from "../component/vehicleCard";
+import { CharacterCardFav } from "../component/characterCardFav";
+import { PlanetCardFav } from "../component/planetCardFav";
+import { VehicleCardFav } from "../component/vehicleCardFav";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -15,7 +15,7 @@ export const Home = () => {
 			</div>
 			<div className="text-white mt-3 d-flex horizontal-scroll">
 				{store.characters.map((character, index) => (
-					<CharacterCard key={index} body={character}></CharacterCard>
+					<CharacterCardFav key={index} body={character}></CharacterCardFav>
 				))}
 			</div>
 			<div className="row text-white mt-3">
@@ -23,7 +23,7 @@ export const Home = () => {
 			</div>
 			<div className="text-white mt-3 d-flex horizontal-scroll">
 				{store.planets.map((planets, index) => (
-					<PlanetCard key={index} body={planets}></PlanetCard>
+					<PlanetCardFav key={index} body={planets}></PlanetCardFav>
 				))}
 			</div>
 			<div className="row text-white mt-3">
@@ -31,7 +31,7 @@ export const Home = () => {
 			</div>
 			<div className="text-white mt-3 d-flex horizontal-scroll">
 				{store.vehicles.map((vehicles, index) => (
-					<VehicleCard key={index} body={vehicles}></VehicleCard>
+					<VehicleCardFav key={index} body={vehicles}></VehicleCardFav>
 				))}
 			</div>
 		</div>
