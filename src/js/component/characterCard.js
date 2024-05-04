@@ -3,7 +3,7 @@ import { images } from "../utils";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const CharacterCard = ({ style,body }) => {
+export const CharacterCard = ({ body }) => {
     const { actions } = useContext(Context);
     const navigate = useNavigate();
 

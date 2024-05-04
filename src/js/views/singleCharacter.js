@@ -7,7 +7,12 @@ import "../../styles/single.css";
 export const SingleCharacter = () => {
 	const { store } = useContext(Context);
 	const info = store.infoCharacter;
-	console.log(store.characterImg);
+
+	const currentID = store.selectedCharacter;
+	const filteredCharacters = store.characters.filter(
+		(character) => character.uid !== currentID
+	);
+
 	return (
 		<div className="container mt-4 ">
 			<div className="row altura bg-white">
@@ -31,10 +36,10 @@ export const SingleCharacter = () => {
 				</div>
 			</div>
 			<div className="text-white mt-3 d-flex horizontal-scroll">
-					{store.characters.map((character, index) => (
-						<CharacterCard style={"single-"} key={index} body={character}></CharacterCard>
-					))}
-				</div>
+				{filteredCharacters.map((character, index) => (
+					<CharacterCard key={index} body={character}></CharacterCard>
+				))}
+			</div>
 		</div>
 	);
 };

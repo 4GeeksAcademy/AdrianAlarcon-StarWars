@@ -2,10 +2,15 @@ import React, { useState, useEffect, useContext } from "react";
 
 import { Context } from "../store/appContext";
 import "../../styles/single.css";
-
+import { VehicleCard } from "../component/vehicleCard";
 export const SingleVehicle = () => {
 	const { store } = useContext(Context);
 	const info = store.infoVehicle;
+
+	const currentID = store.selectedVehicle;
+	const filteredVehicles = store.vehicles.filter(
+		(vehicles) => vehicles.uid !== currentID
+	);
 
 	return (
 		<div className="container mt-4 ">
@@ -29,6 +34,11 @@ export const SingleVehicle = () => {
 						</p>
 					</div>
 				</div>
+			</div>
+			<div className="text-white mt-3 d-flex horizontal-scroll">
+				{filteredVehicles.map((vehicle, index) => (
+					<VehicleCard key={index} body={vehicle}></VehicleCard>
+				))}
 			</div>
 		</div>
 	);

@@ -2,12 +2,16 @@ import React, { useState, useEffect, useContext } from "react";
 
 import { Context } from "../store/appContext";
 import "../../styles/single.css";
+import { PlanetCard } from "../component/planetCard";
 
 export const SinglePlanet = () => {
 	const { store } = useContext(Context);
 	const info = store.infoPlanet;
-	console.log(store.planetImg);
-	console.log(store.infoPlanet)
+
+	const currentID = store.selectedPlanet;
+	const filteredPlanets = store.planets.filter(
+		(planets) => planets.uid !== currentID
+	);
 
 	return (
 		<div className="container mt-4 ">
@@ -22,26 +26,21 @@ export const SinglePlanet = () => {
 				<div className="col-md-5 d-flex align-items-center justify-content-center">
 					<div className="text-center">
 						<h4 className="fw-bold">{info.name}</h4>
-						 <p className="ms-3 me-3">
+						<p className="ms-3 me-3">
 							This is {info.name}, a planet with a diameter of {info.diameter} km.
 							It has a rotation period of {info.rotation_period} hours and an orbital period of {info.orbital_period} days.
 							The gravity on this planet is {info.gravity}. Its climate is characterized as {info.climate}, with terrain that includes {info.terrain}.
 							The population of this planet is {info.population}, and the surface water coverage is {info.surface_water}%.
-						</p> 
+						</p>
 					</div>
 				</div>
 			</div>
 
 
-			<div className="row bg-success mt-3">
-				<div className="col-md-6">
-					<h2>Información adicional</h2>
-					<p>Detalles extra sobre el personaje.</p>
-				</div>
-				<div className="col-md-6"> {/* Segundo segmento */}
-					<h2>Más contenido</h2>
-					<p>Contenido relacionado o secciones adicionales.</p>
-				</div>
+			<div className="text-white mt-3 d-flex horizontal-scroll">
+				{filteredPlanets.map((planet, index) => (
+					<PlanetCard key={index} body={planet}></PlanetCard>
+				))}
 			</div>
 		</div>
 	);
