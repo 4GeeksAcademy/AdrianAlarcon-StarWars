@@ -4,27 +4,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 			characters: [],
 			planets: [],
 			vehicles: [],
+
 			selectedCharacter: "",
-			characterImg:"",
-			planetImg:"",
-			vehicleImg:"",
 			selectedPlanet: "",
 			selectedVehicle: "",
+
+			characterImg: "",
+			planetImg: "",
+			vehicleImg: "",
+
 			infoCharacter: {},
 			infoPlanet: {},
 			infoVehicle: {}
 		},
 		actions: {
 
-			setSelectedCharacter: (id,img) => {
+			setSelectedCharacter: (id, img) => {
 				setStore({ selectedCharacter: id });
-				setStore({characterImg:img})
+				setStore({ characterImg: img })
 			},
-			setSelectedPlanet: (id,img) => {
+			setSelectedPlanet: (id, img) => {
 				setStore({ selectedPlanet: id });
+				setStore({ planetImg: img })
 			},
-			setSelectedVehicle: (id,img) => {
+			setSelectedVehicle: (id, img) => {
 				setStore({ selectedVehicle: id });
+				setStore({ vehicleImg: img })
 			},
 
 			getCharacters: async () => {
@@ -64,31 +69,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 						const { result } = data;
 						const info = result.properties;
 						setStore({ infoCharacter: info })
-						console.log("dentro de getchinfo", getStore().infoCharacter);
 					})
 					.catch(err => console.error(err))
 			},
 			getPlanetInfo: async () => {
-				const id = getStore().selectedCharacter;
+				const id = getStore().selectedPlanet;
 				fetch(`https://www.swapi.tech/api/planets/${id}`)
 					.then(res => res.json())
 					.then(data => {
 						const { result } = data;
 						const info = result.properties;
 						setStore({ infoPlanet: info })
-						console.log(getStore().infoCharacter);
 					})
 					.catch(err => console.error(err))
 			},
-			getVehiclesInfo: async () => {
-				const id = getStore().selectedCharacter;
+			getVehicleInfo: async () => {
+				const id = getStore().selectedVehicle;
 				fetch(`https://www.swapi.tech/api/vehicles/${id}`)
 					.then(res => res.json())
 					.then(data => {
 						const { result } = data;
 						const info = result.properties;
 						setStore({ infoVehicle: info })
-						console.log(infoCharacter);
 					})
 					.catch(err => console.error(err))
 			}
