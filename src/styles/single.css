@@ -1,12 +1,3 @@
-/* .altura {
-    min-height: 500px;
-}
-
-.limited-image {
-    width: 100%; 
-    height: 500px; 
-    object-fit:cover;
-} */
 
 .altura {
     min-height: 500px; /* Altura mínima */
@@ -30,4 +21,21 @@
 
 .col-md-5 {
     padding: 0; /* Eliminar padding para que las columnas encajen perfectamente */
+}
+
+.card {
+    min-width: 190px;
+    max-width: 190px;
+    flex: 0 0 auto;
+    text-align: center;
+}
+
+.card-img-top {
+    height: 190px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 10px;
 }

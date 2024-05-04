@@ -27,20 +27,7 @@ export const SingleVehicle = () => {
 							and accommodates up to {info.passengers} passengers. It has a maximum speed of {info.max_atmosphering_speed} in atmospheric conditions.
 							With a cargo capacity of {info.cargo_capacity} units and provisions for {info.consumables}.
 						</p>
-
 					</div>
-				</div>
-			</div>
-
-
-			<div className="row bg-success mt-3">
-				<div className="col-md-6">
-					<h2>Información adicional</h2>
-					<p>Detalles extra sobre el personaje.</p>
-				</div>
-				<div className="col-md-6"> {/* Segundo segmento */}
-					<h2>Más contenido</h2>
-					<p>Contenido relacionado o secciones adicionales.</p>
 				</div>
 			</div>
 		</div>
