@@ -8,13 +8,40 @@ export const FavRow = ({ body }) => {
     const { store,actions } = useContext(Context);
     const navigate = useNavigate();
 
-    const charactersList = store.characters;
-    const character = charactersList.find((c) => c.uid === body.id);
-    const characterName = character ? character.name : "Personaje desconocido";
+   let itemName = "Desconocido";  // Nombre por defecto
+    let imagePath = "";  // Ruta de imagen por defecto
 
-    const imageName = character.name.replaceAll(" ", "_");
-    const imageName2 = imageName.replaceAll("/", "-");
-    const imagePath = images[imageName2];
+    if (body.type === "character") {
+        const charactersList = store.characters;
+        const character = charactersList.find((c) => c.uid === body.id);
+        itemName = character ? character.name : "Personaje desconocido";
+        
+        if (character) {
+            const imageName = character.name.replaceAll(" ", "_");
+            const imageName2 = imageName.replaceAll("/", "-");
+            imagePath = images[imageName2];
+        }
+    } else if (body.type === "planet") {
+        const planetsList = store.planets;
+        const planet = planetsList.find((p) => p.uid === body.id);
+        itemName = planet ? planet.name : "Planeta desconocido";
+
+        if (planet) {
+            const imageName = planet.name.replaceAll(" ", "_");
+            const imageName2 = imageName.replaceAll("/", "-");
+            imagePath = images[imageName2];
+        }
+    } else if (body.type === "vehicle") {
+        const vehiclesList = store.vehicles;
+        const vehicle = vehiclesList.find((v) => v.uid === body.id);
+        itemName = vehicle ? vehicle.name : "Vehículo desconocido";
+
+        if (vehicle) {
+            const imageName = vehicle.name.replaceAll(" ", "_");
+            const imageName2 = imageName.replaceAll("/", "-");
+            imagePath = images[imageName2];
+        }
+    }
 
     const handleNavClick = async (id, image) => {
         await actions.setSelectedCharacter(id, image);
@@ -22,14 +49,14 @@ export const FavRow = ({ body }) => {
         navigate("/singleCharacter");
     };
 
-    const handleDeleteClick = () => {
-        actions.deleteFromFav();
+    const handleDeleteClick = (id,type) => {
+        actions.deleteFromFav(id,type);
     };
 
     return (
         <div className="dropdown-item d-flex align-items-center">
-            <span onClick={() => handleNavClick(body.id, imagePath)}>{characterName}</span>
-            <MdDelete className="ms-auto text-danger" onClick={() => handleDeleteClick()} />
+            <span onClick={() => handleNavClick(body.id, imagePath)}>{itemName}</span>
+            <MdDelete className="ms-auto text-danger" onClick={() => handleDeleteClick(body.id,body.type)} />
         </div>
     );
 

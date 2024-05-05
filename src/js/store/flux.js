@@ -121,8 +121,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			deleteFromFav: () => {
-				
+			deleteFromFav: (id,type) => {
+				const store = getStore();
+				const updatedFav = store.fav.filter(
+					(fav) => fav.id !== id || fav.type !== type
+				);
+				setStore({ ...store, fav: updatedFav });
 			}
 		}
 	};
