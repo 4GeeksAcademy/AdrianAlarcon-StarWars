@@ -13,7 +13,7 @@ export const Home = () => {
 			<div className="row text-white mt-3">
 				<h2>Characters</h2>
 			</div>
-			<div className="text-white mt-3 d-flex horizontal-scroll">
+			<div className="scroll text-white mt-3 d-flex horizontal-scroll">
 				{store.characters.map((character, index) => (
 					<CharacterCardFav key={index} body={character}></CharacterCardFav>
 				))}
@@ -21,7 +21,7 @@ export const Home = () => {
 			<div className="row text-white mt-3">
 				<h2>Planets</h2>
 			</div>
-			<div className="text-white mt-3 d-flex horizontal-scroll">
+			<div className="scroll text-white mt-3 d-flex horizontal-scroll">
 				{store.planets.map((planets, index) => (
 					<PlanetCardFav key={index} body={planets}></PlanetCardFav>
 				))}
@@ -29,7 +29,7 @@ export const Home = () => {
 			<div className="row text-white mt-3">
 				<h2>Vehicles</h2>
 			</div>
-			<div className="text-white mt-3 d-flex horizontal-scroll">
+			<div className="scroll text-white mt-3 d-flex horizontal-scroll">
 				{store.vehicles.map((vehicles, index) => (
 					<VehicleCardFav key={index} body={vehicles}></VehicleCardFav>
 				))}

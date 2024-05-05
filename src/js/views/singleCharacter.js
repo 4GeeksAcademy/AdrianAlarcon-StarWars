@@ -35,7 +35,7 @@ export const SingleCharacter = () => {
 					</div>
 				</div>
 			</div>
-			<div className="text-white mt-3 d-flex horizontal-scroll">
+			<div className="scroll text-white mt-3 d-flex horizontal-scroll">
 				{filteredCharacters.map((character, index) => (
 					<CharacterCard key={index} body={character}></CharacterCard>
 				))}

@@ -35,7 +35,7 @@ export const SingleVehicle = () => {
 					</div>
 				</div>
 			</div>
-			<div className="text-white mt-3 d-flex horizontal-scroll">
+			<div className="scroll text-white mt-3 d-flex horizontal-scroll">
 				{filteredVehicles.map((vehicle, index) => (
 					<VehicleCard key={index} body={vehicle}></VehicleCard>
 				))}

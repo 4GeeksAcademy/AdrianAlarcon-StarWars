@@ -37,7 +37,7 @@ export const SinglePlanet = () => {
 			</div>
 
 
-			<div className="text-white mt-3 d-flex horizontal-scroll">
+			<div className="scroll text-white mt-3 d-flex horizontal-scroll">
 				{filteredPlanets.map((planet, index) => (
 					<PlanetCard key={index} body={planet}></PlanetCard>
 				))}
