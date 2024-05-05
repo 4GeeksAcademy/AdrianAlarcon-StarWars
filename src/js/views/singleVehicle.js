@@ -13,7 +13,7 @@ export const SingleVehicle = () => {
 	);
 
 	return (
-		<div className="container mt-4 ">
+		<div className="container mt-4 d-flex flex-column min-vh-100">
 			<div className="row altura bg-white">
 				<div className="col-md-7 p-0">
 					<img
