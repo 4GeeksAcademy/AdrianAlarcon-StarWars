@@ -2,8 +2,9 @@ import React, { useContext } from "react";
 import { images } from "../utils";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
-import { GrFavorite } from "react-icons/gr";
 
+import { GrFavorite } from "react-icons/gr"; // empty
+import { MdFavorite } from "react-icons/md"; // full
 
 export const CharacterCardFav = ({ body }) => {
     const { store, actions } = useContext(Context);
@@ -21,7 +22,11 @@ export const CharacterCardFav = ({ body }) => {
 
     const handleClickFav = async (id, type) => {
         await actions.addtoFav(id, type);
-        console.log(store.fav);
+    }
+
+    const isFavorite = (id, type) => {
+        const favorites = store.fav;
+        return favorites.find((fav)=> fav.id === id && fav.type === type) !== undefined;
     }
 
     return (
@@ -31,10 +36,15 @@ export const CharacterCardFav = ({ body }) => {
                 <div className="card-body d-flex-column" onClick={() => handleClickCard(body.uid, imagePath)}>
                     <h5 className="card-title text-black">{body.name}</h5>
                 </div>
-                <button className="btn btn-warning" onClick={() => handleClickFav(body.uid, "character")}><GrFavorite /></button>
+                <button className="btn btn-warning" onClick={() => handleClickFav(body.uid, "character")}>
+                    {
+                        isFavorite(body.uid, "character")
+                            ? <MdFavorite />  
+                            : <GrFavorite />  
+                    }
+                </button>
             </div>
         </div>
-
     );
 };
 

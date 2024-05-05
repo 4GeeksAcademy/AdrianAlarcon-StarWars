@@ -4,7 +4,7 @@ import { Context } from "../store/appContext";
 import { FavRow } from "../component/favRow";
 
 export const Navbar = () => {
-	const { store, actions } = useContext(Context);
+	const { store } = useContext(Context);
 
 	return (
 		<nav className="navbar navbar-light bg-dark">
@@ -15,14 +15,14 @@ export const Navbar = () => {
 				<button
 					className="btn btn-warning dropdown-toggle"
 					type="button"
-					data-bs-toggle="dropdown" 
+					data-bs-toggle="dropdown"
 					aria-expanded="false"
 				>
 					Favorites
 				</button>
 				<div className="dropdown-menu dropdown-menu-end mt-2 ms-1">
-					{store.fav.map((fav, index) => (
-						<FavRow key={index} />
+					{store.fav.map((favo, index) => (
+						<FavRow key={index} body={favo} />
 					))}
 				</div>
 			</div>

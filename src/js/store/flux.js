@@ -17,10 +17,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			infoPlanet: {},
 			infoVehicle: {},
 
-			fav: [
-				{ id: 1, type: "character" },
-				{ id: 4, type: "planet" }
-			]
+			fav: []
 		},
 
 		actions: {
@@ -29,10 +26,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ selectedCharacter: id });
 				setStore({ characterImg: img })
 			},
+
 			setSelectedPlanet: (id, img) => {
 				setStore({ selectedPlanet: id });
 				setStore({ planetImg: img })
 			},
+
 			setSelectedVehicle: (id, img) => {
 				setStore({ selectedVehicle: id });
 				setStore({ vehicleImg: img })
@@ -47,6 +46,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(err => console.error(err))
 			},
+
 			getPlanets: async () => {
 				fetch("https://www.swapi.tech/api/planets/")
 					.then(res => res.json())
@@ -56,6 +56,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(err => console.error(err))
 			},
+
 			getVehicles: async () => {
 				fetch("https://www.swapi.tech/api/vehicles/")
 					.then(res => res.json())
@@ -78,6 +79,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(err => console.error(err))
 			},
+
 			getPlanetInfo: async () => {
 				const id = getStore().selectedPlanet;
 				fetch(`https://www.swapi.tech/api/planets/${id}`)
@@ -89,6 +91,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(err => console.error(err))
 			},
+
 			getVehicleInfo: async () => {
 				const id = getStore().selectedVehicle;
 				fetch(`https://www.swapi.tech/api/vehicles/${id}`)
@@ -102,11 +105,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			addtoFav: (id, type) => {
-				
+				const store = getStore();
+				const object = { id, type };
+
+				const isAlreadyFav = store.fav.some(
+					(fav) => fav.id === id && fav.type === type
+				);
+
+				if (!isAlreadyFav) {
+					const updatedFav = [...store.fav, object];
+					setStore({ ...store, fav: updatedFav });
+					console.log(store.fav);
+				} else {
+					console.log("El objeto ya está en favoritos, no se agrega.");
+				}
 			},
 
 			deleteFromFav: () => {
-
+				
 			}
 		}
 	};
